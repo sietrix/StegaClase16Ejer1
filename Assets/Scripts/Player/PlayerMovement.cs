@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Clase 16 - Ejercicio 1
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed, turnSpeed;
+
+    [Header("Jump")]
+    public float jumpForce;
+
     private float vertical, horizontal;
+    private Rigidbody rg;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        rg = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         InputPlayer();
         Move();
         Rotate();
+        Jump();
     }
 
     void InputPlayer()
@@ -36,6 +43,14 @@ public class PlayerMovement : MonoBehaviour
     void Rotate()
     {
         transform.Rotate(Vector3.up * turnSpeed * horizontal * Time.deltaTime);
+    }
+
+    void Jump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        { 
+            rg.AddForce(Vector3.up * jumpForce);
+        }
     }
 
 
