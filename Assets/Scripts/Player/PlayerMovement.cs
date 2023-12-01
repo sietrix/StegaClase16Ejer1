@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
 
     private float vertical, horizontal;
+    private bool canPlayerJump = false;
     private Rigidbody rg;
+    
 
 
     void Start()
@@ -26,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
         InputPlayer();
         Move();
         Rotate();
+        CanJump();
+    }
+
+    private void FixedUpdate()
+    {
         Jump();
     }
 
@@ -45,13 +52,23 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(Vector3.up * turnSpeed * horizontal * Time.deltaTime);
     }
 
-    void Jump()
+    void CanJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        { 
-            rg.AddForce(Vector3.up * jumpForce);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            canPlayerJump = true;
         }
     }
+
+    void Jump()
+    {
+        if(canPlayerJump)
+        { 
+            rg.AddForce(Vector3.up * jumpForce);
+            canPlayerJump = false;
+        }
+    }
+
 
 
 
