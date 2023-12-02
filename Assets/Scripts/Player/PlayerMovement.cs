@@ -15,12 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private float vertical, horizontal;
     private bool canPlayerJump = false;
     private Rigidbody rg;
-    
+    private Animator anim;
 
 
     void Start()
     {
         rg = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         InputPlayer();
         Move();
         Rotate();
+        Animating();
         CanJump();
     }
 
@@ -69,6 +71,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void Animating()
+    {
+        // se pone velocidad mayor a 1 para que la animación
+        // no se active con el rebote al caer al suelo
+        if (rg.velocity.y > 1)
+        {
+            Debug.Log("Velocidad salto: " + rg.velocity.y);
+            anim.SetBool("IsJumping", true);
+        }
+        else
+        {
+            anim.SetBool("IsJumping", false);
+        }
+    }
 
 
 
