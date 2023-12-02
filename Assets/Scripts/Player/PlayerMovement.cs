@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
 
     private float vertical, horizontal;
-    private bool canPlayerJump = false;
+    private bool canPlayerJump;
     private Rigidbody rg;
     private Animator anim;
 
@@ -73,11 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Animating()
     {
-        // se pone velocidad mayor a 1 para que la animación
-        // no se active con el rebote al caer al suelo
+        // Comprobamos la velocidad de subida y bajada
+        // rg.velocity.y > 1 por si hay rebote en el suelo
+        // que no se active la transición
         if (rg.velocity.y > 1)
         {
-            Debug.Log("Velocidad salto: " + rg.velocity.y);
             anim.SetBool("IsJumping", true);
         }
         else
