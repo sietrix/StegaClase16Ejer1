@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
       propertyPath: m_Name
-      value: flower07 1
+      value: flower07
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
+      propertyPath: m_TagString
+      value: AttackPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,6 +66,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4191049144108053504}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4564701908734177337}
   m_SourcePrefab: {fileID: 100100000, guid: f74defbe1b9a23449aef9a881263fe0c, type: 3}
 --- !u!1 &8433194091441801975 stripped
 GameObject:
@@ -116,3 +123,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.051954996, y: 0.07385147, z: 0.049697682}
   m_Center: {x: 0.0005196075, y: -0.011961317, z: 0.00034645587}
+--- !u!114 &4564701908734177337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433194091441801975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1bafb8b812ea645b04aa9f11860ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
